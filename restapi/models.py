@@ -599,6 +599,28 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+# ========================== Blog ==================================#
+class BlogCategory(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.URLField(blank=True, null=True)
+    desc = models.TextField(blank=True)
+    content = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Blog(models.Model):
+    title = models.CharField(max_length=70, blank=False, default='')
+    blog_category = models.ForeignKey(BlogCategory, on_delete=models.CASCADE)
+    image = models.URLField(blank=True, null=True)
+    author = models.CharField(max_length=70, blank=False, default='')
+    description = models.TextField(blank=True, null=True)
+    content = models.TextField(blank=True)
+    published = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
+
 # =================================== CONTACT INFO ========================================== #
 class ContactCategory(models.Model):
     name = models.CharField(max_length=100)

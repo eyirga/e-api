@@ -166,6 +166,22 @@ class BookCategoryAdmin(ImportExportModelAdmin):
 @admin.register(Book)
 class BookAdmin(ImportExportModelAdmin):
 	pass
+
+# =============== BLOG ======================== #
+class BlogCategoryAdmin(admin.ModelAdmin):
+    list_display = ("name")
+
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ("title")
+
+@admin.register(BlogCategory)
+class BlogCategoryAdmin(ImportExportModelAdmin):
+	pass
+
+@admin.register(Blog)
+class BlogAdmin(ImportExportModelAdmin):
+	pass
+
 # ================ TASK and TASK CATEGORIES ======================= #
 class TaskListAdmin(admin.ModelAdmin):
     list_display = ("title", "created", "due_date")

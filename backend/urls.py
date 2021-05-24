@@ -20,6 +20,9 @@ router.register('Tutorial', views.TutorialViewSet)
 router.register('BookCategory', views.BookCategoryViewSet)
 router.register('Book', views.BookViewSet)
 
+router.register('BlogCategory', views.BlogCategoryViewSet)
+router.register('Blog', views.BlogViewSet)
+
 router.register('RestaurantCategory', views.RestaurantCategoryViewSet)
 router.register('Restaurant', views.RestaurantViewSet)
 router.register('RestaurantReview', views.RestaurantReviewViewSet)

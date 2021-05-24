@@ -64,6 +64,15 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
+# ==================================== BLOG ================================== #
+class BlogCategoryViewSet(viewsets.ModelViewSet):
+    queryset = BlogCategory.objects.all()
+    serializer_class = BlogCategorySerializer
+
+class BlogViewSet(viewsets.ModelViewSet):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+
 # ==================================== RESTAURANT ================================== #
 class RestaurantCategoryViewSet(viewsets.ModelViewSet):
     queryset = RestaurantCategory.objects.all()

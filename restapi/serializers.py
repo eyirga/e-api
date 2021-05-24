@@ -137,6 +137,17 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         fields = '__all__'                  
 
+# ===================================== BLOG ========================================= #
+class BlogCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogCategory
+        fields = '__all__'                  
+
+class BlogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Blog
+        fields = '__all__'                  
+
 # =============================== TASK AND TASK CATEGORIES ============================== #
 class TaskCategorySerializers(serializers.ModelSerializer):
     class Meta:
