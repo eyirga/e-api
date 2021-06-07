@@ -61,7 +61,7 @@ class ProductCategory(models.Model):
     # Others
     is_active          = models.BooleanField(default=False)
     status             = models.BooleanField(default=False)
-    created_at 		   = models.DateTimeField(auto_now=True)
+    created_at 		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
     desc               = models.TextField(blank=True, null=True)
 
@@ -77,8 +77,8 @@ class ProductList(models.Model):
     checked             = models.BooleanField(default=False)
     sold                = models.BooleanField(default=False)
     instock             = models.BooleanField(default=False)
-    created_at 		    = models.DateTimeField(auto_now=True)
-    updated_at		    = models.DateTimeField(auto_now=True)
+    created_at 		    = models.DateTimeField(auto_now=False)
+    updated_at		    = models.DateTimeField(auto_now=False)
 
 
 # to view string representation of the data
@@ -91,8 +91,8 @@ class CustomerCategory(models.Model):
     image           = models.URLField(blank=True, null=True)
     desc            = models.TextField(blank=True)
     content         = models.TextField(blank=True)
-    created_at 		= models.DateTimeField(auto_now=True)
-    updated_at		= models.DateTimeField(auto_now=True)
+    created_at 		= models.DateTimeField(auto_now=False)
+    updated_at		= models.DateTimeField(auto_now=False)
 
 
 
@@ -122,8 +122,8 @@ class Customer(models.Model):
     addition_info_02        = models.CharField(max_length=50, blank=True, null=True)
     addition_info_03        = models.CharField(max_length=50, blank=True, null=True)
     is_active               = models.BooleanField(default=True, blank=True, null=True)
-    created_at              = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at              = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.first_name
@@ -134,9 +134,8 @@ class EmployeeCategory(models.Model):
     image       = models.URLField(blank=True, null=True)
     desc        = models.TextField(blank=True)
     content     = models.TextField(blank=True)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -165,9 +164,8 @@ class Employee(models.Model):
     addition_info_02        = models.CharField(max_length=50, blank=True, null=True)
     addition_info_03        = models.CharField(max_length=50, blank=True, null=True)
     is_active               = models.BooleanField(default=True, blank=True, null=True)
-    created_at              = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at              = models.DateTimeField(auto_now=True, blank=True, null=True)
-
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.first_name
@@ -177,8 +175,8 @@ class Employee(models.Model):
 class OrderCatgory(models.Model):
     catname         = models.CharField(max_length=64)
     desc            = models.TextField(blank=True, null=True)
-    created_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -196,8 +194,8 @@ class Order(models.Model):
     empNum          = models.ForeignKey(EmployeeCategory, on_delete=models.CASCADE)
     description     = models.TextField(blank=True, null=True)
     checked         = models.BooleanField(default=False)
-    created_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -210,8 +208,8 @@ class OrderDetail(models.Model):
     author          = models.CharField(max_length=70, blank=False, default='')
     description     = models.TextField(blank=True, null=True)
     published       = models.BooleanField(default=False)
-    created_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -240,8 +238,8 @@ class RestaurantCategory(models.Model):
     # Others           
     is_active                  = models.BooleanField(default=False)
     status                     = models.BooleanField(default=False)
-    created_at 		           = models.DateTimeField(auto_now=True)
-    updated_at		           = models.DateTimeField(auto_now=True)
+    created_at 		           = models.DateTimeField(auto_now=False)
+    updated_at		           = models.DateTimeField(auto_now=False)
     desc                       = models.TextField(blank=True, null=True)
 
     # Restaurant qs manager
@@ -250,8 +248,8 @@ class RestaurantCategory(models.Model):
 #-------------------------------------CITY and INFORMATION ----------------------------------------------------- #       
 class Division(models.Model):
     title        = models.CharField(max_length=128)
-    created_at   = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at   = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -268,8 +266,8 @@ class Division(models.Model):
 class City(models.Model):
     division        = models.ForeignKey(Division, on_delete=models.CASCADE)
     title           = models.CharField(max_length=128)
-    created_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at      = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
 	    return self.division.title + " - " + self.title
@@ -293,8 +291,8 @@ class City(models.Model):
 class FoodCategory(models.Model):
     title	        = models.CharField(max_length=200, blank=False, null=False)
     is_active       = models.BooleanField(default=True, blank=True)
-    created_at   	= models.DateTimeField(auto_now=True)
-    updated_at		= models.DateTimeField(auto_now=True)
+    created_at   	= models.DateTimeField(auto_now=False)
+    updated_at		= models.DateTimeField(auto_now=False)
 
     def __str__(self):
 	    return self.title + " - " + "status: " + str(self.is_active)
@@ -313,8 +311,8 @@ class Food(models.Model):
 	is_active                = models.BooleanField(default=True, blank=True)
 	ordered_in_restaurant    = models.IntegerField(default=0, blank=True)
 	ordered_in_home    	     = models.IntegerField(default=0, blank=True)
-	created_at   	         = models.DateTimeField(auto_now=True)
-	updated_at		         = models.DateTimeField(auto_now=True)
+	created_at   	         = models.DateTimeField(auto_now=False)
+	updated_at		         = models.DateTimeField(auto_now=False)
 
 	def __str__(self):
 		return self.title
@@ -362,7 +360,7 @@ class Restaurant(models.Model):
     # Others
     is_active          = models.BooleanField(default=False)
     is_orderable       = models.BooleanField(default=False)
-    created_at 		   = models.DateTimeField(auto_now=True)
+    created_at 		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
     extra_info         = models.TextField(blank=True, null=True)
     food_items         = models.ManyToManyField(Food, blank=True)
@@ -396,7 +394,7 @@ class RestaurantReview(models.Model):
     star4              = models.CharField(max_length=50, default='fa-star-o text-secondary')
     star5              = models.CharField(max_length=50, default='fa-star-o text-secondary')
 
-    created_at         = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
 
@@ -415,7 +413,7 @@ class ServiceTime(models.Model):
     wednesday          = models.BooleanField(default=True, blank=True)
     thursday           = models.BooleanField(default=True, blank=True)
     friday             = models.BooleanField(default=True, blank=True)
-    created_at         = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
@@ -446,7 +444,7 @@ class Notification(models.Model):
 	title 	   = models.CharField(max_length=200, default='', blank=True)
 	content    = models.TextField(default='', blank=True)
 	link	   = models.TextField(default='')
-	created_at = models.DateTimeField(auto_now=True)
+	created_at		   = models.DateTimeField(auto_now=False)
 	updated_at		   = models.DateTimeField(auto_now=False)
 	is_seen	   = models.BooleanField(blank=True, null=True)
 
@@ -475,7 +473,7 @@ class Cart(models.Model):
     quantities = models.CharField(max_length=512, default='', blank=True)
     subtotal   = models.FloatField(default=0.00, blank=True)
     total      = models.FloatField(default=0.00, blank=True)
-    created_at = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
     is_active  = models.BooleanField(blank=True, null=True)
     def __str__(self):
@@ -498,7 +496,7 @@ class OrderRest(models.Model):
     discount            = models.FloatField(default=0.00, blank=True)
     cost		        = models.FloatField(default=0.00, blank=True)
     is_active           = models.BooleanField(blank=True, null=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)   
     def get_absolute_url(self):
     	return reverse('orders:detail', kwargs={'order_id': self.order_id})
@@ -512,7 +510,7 @@ class Discount(models.Model):
     percentage = models.FloatField(default=0.00, blank=True)
     key        = models.CharField(max_length=100, blank=True, default='')
     used       = models.BooleanField(default=False, blank=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
@@ -547,7 +545,7 @@ class PartnerRestaurant(models.Model):
     home_sell_count = models.IntegerField(default=0, blank=True)
     rest_sell_count = models.IntegerField(default=0, blank=True)
     total_sell_tk	= models.FloatField(default=0.0, blank=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
 class Sell(models.Model):
@@ -556,7 +554,7 @@ class Sell(models.Model):
     total_price   = models.FloatField(default=0.0, blank=False, null=False)
     delivery_type = models.CharField(max_length=100, blank=False, null=False)
     destination   = models.CharField(max_length=256, default='', blank=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 	
 #---------------------------- REVIEWS -------------------------------------
@@ -578,7 +576,7 @@ class Review(models.Model):
 	star4	    = models.CharField(max_length=50, default='fa-star')
 	star5	    = models.CharField(max_length=50, default='fa-star')
 
-	created_at  = models.DateTimeField(auto_now=True)
+	created_at		   = models.DateTimeField(auto_now=False)
 	updated_at		   = models.DateTimeField(auto_now=False)
 
 	def __str__(self):
@@ -590,7 +588,7 @@ class TutorialCategory(models.Model):
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
 
@@ -604,7 +602,7 @@ class Tutorial(models.Model):
     content = models.TextField(blank=True)
     image = models.URLField(blank=True, null=True)
     published = models.BooleanField(default=False)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
@@ -615,7 +613,7 @@ class BookCategory(models.Model):
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
 
@@ -630,7 +628,7 @@ class Book(models.Model):
     description = models.TextField(blank=True, null=True)
     content = models.TextField(blank=True)
     published = models.BooleanField(default=False)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
@@ -642,7 +640,7 @@ class BlogCategory(models.Model):
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
@@ -656,7 +654,7 @@ class Blog(models.Model):
     description = models.TextField(blank=True, null=True)
     content = models.TextField(blank=True)
     published = models.BooleanField(default=False)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
@@ -668,7 +666,7 @@ class ContactCategory(models.Model):
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    created_at          = models.DateTimeField(auto_now=True)
+    created_at		   = models.DateTimeField(auto_now=False)
     updated_at		   = models.DateTimeField(auto_now=False)
 
 
@@ -698,8 +696,8 @@ class Contact(models.Model):
     addition_info_02        = models.CharField(max_length=50, blank=True, null=True)
     addition_info_03        = models.CharField(max_length=50, blank=True, null=True)
     is_active   = models.BooleanField(default=True, blank=True, null=True)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.first_name
@@ -710,8 +708,8 @@ class ClientCategory(models.Model):
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.name
@@ -740,8 +738,8 @@ class ClientList(models.Model):
     addition_info_02        = models.TextField(blank=True)
     addition_info_03        = models.TextField(blank=True)
     is_active   = models.BooleanField(default=True, blank=True, null=True)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.first_name
@@ -752,8 +750,8 @@ class TaskCategory(models.Model):
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -773,8 +771,8 @@ class TaskList(models.Model):
     balance = models.DecimalField(max_digits=10, default=0.00, decimal_places=2)
     note = models.CharField(max_length=500, default='Hello')
     completed = models.BooleanField(default=False)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.title
@@ -785,8 +783,8 @@ class AlbumCategory(models.Model):
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -801,8 +799,8 @@ class AlbumList(models.Model):
     created = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
     note = models.CharField(max_length=500, default='Hello')
     completed = models.BooleanField(default=False, blank=True, null=True)
-    created_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
-    updated_at  = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_at		   = models.DateTimeField(auto_now=False)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.title
