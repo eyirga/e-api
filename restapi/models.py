@@ -62,7 +62,7 @@ class ProductCategory(models.Model):
     is_active          = models.BooleanField(default=False)
     status             = models.BooleanField(default=False)
     created_at 		   = models.DateTimeField(auto_now=True)
-    updated_at		   = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
     desc               = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -363,7 +363,7 @@ class Restaurant(models.Model):
     is_active          = models.BooleanField(default=False)
     is_orderable       = models.BooleanField(default=False)
     created_at 		   = models.DateTimeField(auto_now=True)
-    updated_at		   = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
     extra_info         = models.TextField(blank=True, null=True)
     food_items         = models.ManyToManyField(Food, blank=True)
     # Restaurant qs manager
@@ -397,7 +397,7 @@ class RestaurantReview(models.Model):
     star5              = models.CharField(max_length=50, default='fa-star-o text-secondary')
 
     created_at         = models.DateTimeField(auto_now=True)
-    updated_at         = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
 
@@ -416,7 +416,7 @@ class ServiceTime(models.Model):
     thursday           = models.BooleanField(default=True, blank=True)
     friday             = models.BooleanField(default=True, blank=True)
     created_at         = models.DateTimeField(auto_now=True)
-    updated_at         = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.restaurant.title
@@ -447,7 +447,7 @@ class Notification(models.Model):
 	content    = models.TextField(default='', blank=True)
 	link	   = models.TextField(default='')
 	created_at = models.DateTimeField(auto_now=True)
-	updated_at = models.DateTimeField(auto_now=True)
+	updated_at		   = models.DateTimeField(auto_now=False)
 	is_seen	   = models.BooleanField(blank=True, null=True)
 
 	def __str__(self):
@@ -476,7 +476,7 @@ class Cart(models.Model):
     subtotal   = models.FloatField(default=0.00, blank=True)
     total      = models.FloatField(default=0.00, blank=True)
     created_at = models.DateTimeField(auto_now=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
     is_active  = models.BooleanField(blank=True, null=True)
     def __str__(self):
 	    return self.restaurant.title + ' - ' + str(self.total)
@@ -499,7 +499,7 @@ class OrderRest(models.Model):
     cost		        = models.FloatField(default=0.00, blank=True)
     is_active           = models.BooleanField(blank=True, null=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)   
+    updated_at		   = models.DateTimeField(auto_now=False)   
     def get_absolute_url(self):
     	return reverse('orders:detail', kwargs={'order_id': self.order_id})
     
@@ -513,7 +513,7 @@ class Discount(models.Model):
     key        = models.CharField(max_length=100, blank=True, default='')
     used       = models.BooleanField(default=False, blank=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
     	return str(self.percentage) + " - " + str(self.used)
@@ -548,7 +548,7 @@ class PartnerRestaurant(models.Model):
     rest_sell_count = models.IntegerField(default=0, blank=True)
     total_sell_tk	= models.FloatField(default=0.0, blank=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 class Sell(models.Model):
     restaurant    = models.ForeignKey(PartnerRestaurant, on_delete=models.CASCADE)
@@ -557,7 +557,7 @@ class Sell(models.Model):
     delivery_type = models.CharField(max_length=100, blank=False, null=False)
     destination   = models.CharField(max_length=256, default='', blank=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 	
 #---------------------------- REVIEWS -------------------------------------
 class Review(models.Model):
@@ -579,7 +579,7 @@ class Review(models.Model):
 	star5	    = models.CharField(max_length=50, default='fa-star')
 
 	created_at  = models.DateTimeField(auto_now=True)
-	updated_at  = models.DateTimeField(auto_now=True)
+	updated_at		   = models.DateTimeField(auto_now=False)
 
 	def __str__(self):
 		return self.restaurant.title + ": " + self.account.username + " - " + self.title
@@ -591,7 +591,7 @@ class TutorialCategory(models.Model):
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -605,7 +605,7 @@ class Tutorial(models.Model):
     image = models.URLField(blank=True, null=True)
     published = models.BooleanField(default=False)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.title
@@ -616,7 +616,7 @@ class BookCategory(models.Model):
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
@@ -631,7 +631,7 @@ class Book(models.Model):
     content = models.TextField(blank=True)
     published = models.BooleanField(default=False)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.title
@@ -643,7 +643,7 @@ class BlogCategory(models.Model):
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.name
@@ -657,7 +657,7 @@ class Blog(models.Model):
     content = models.TextField(blank=True)
     published = models.BooleanField(default=False)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
     def __str__(self):
         return self.title
@@ -669,7 +669,7 @@ class ContactCategory(models.Model):
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
     created_at          = models.DateTimeField(auto_now=True)
-    updated_at          = models.DateTimeField(auto_now=True)
+    updated_at		   = models.DateTimeField(auto_now=False)
 
 
     def __str__(self):
