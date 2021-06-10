@@ -43,7 +43,7 @@ pre_save.connect(pre_save_receiver, sender=User)
 
 class ProductCategory(models.Model):
     # Basic
-    name               = models.CharField(max_length=50, blank=False, null=False, default="eService")
+    category_name               = models.CharField(max_length=50, blank=False, null=False, default="eService")
     image              = models.URLField(blank=True, null=True)
     phone	   		   = models.CharField(max_length=12, blank=True, null=True, default='')
     email      		   = models.CharField(max_length=50, blank=True, null=True, default='')
