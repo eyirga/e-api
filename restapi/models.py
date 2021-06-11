@@ -87,7 +87,7 @@ class ProductList(models.Model):
 
 # ================================= CUSTOMER ================================= #
 class CustomerCategory(models.Model):
-    name            = models.CharField(max_length=100)
+    customer_category            = models.CharField(max_length=100)
     image           = models.URLField(blank=True, null=True)
     desc            = models.TextField(blank=True)
     content         = models.TextField(blank=True)
@@ -130,7 +130,7 @@ class Customer(models.Model):
 
 # ================================= EMPLOYEE ================================= #
 class EmployeeCategory(models.Model):
-    name        = models.CharField(max_length=100)
+    employee_category        = models.CharField(max_length=100)
     image       = models.URLField(blank=True, null=True)
     desc        = models.TextField(blank=True)
     content     = models.TextField(blank=True)
@@ -186,7 +186,7 @@ class OrderCatgory(models.Model):
 
 class Order(models.Model):
     orderNumber     = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
-    customerId      = models.ForeignKey(CustomerCategory, on_delete=models.CASCADE)
+    catname      = models.ForeignKey(CustomerCategory, on_delete=models.CASCADE)
     customername    = models.CharField(max_length=70, blank=False, default='')
     Customercount   = models.IntegerField
     payment         = models.DecimalField(max_digits=8, decimal_places=2)
@@ -202,7 +202,7 @@ class Order(models.Model):
         return self.customername
 
 class OrderDetail(models.Model):
-    orderMasterId   = models.ForeignKey(Order, on_delete=models.CASCADE)
+    catname   = models.ForeignKey(Order, on_delete=models.CASCADE)
     image           = models.URLField(blank=True, null=True)
     item            = models.CharField(max_length=70, blank=False, default='')
     author          = models.CharField(max_length=70, blank=False, default='')
@@ -334,7 +334,7 @@ class RestaurantManager(models.Manager):
 class Restaurant(models.Model):
     # Basic
     restaurant_category           = models.ForeignKey(RestaurantCategory, on_delete=models.CASCADE, blank=False, null=True)
-    title 	    	   = models.CharField(max_length=500, blank=False, null=False)
+    restaurant 	    	   = models.CharField(max_length=500, blank=False, null=False)
     slug               = models.SlugField(blank=True, unique=True)
     phone	   		   = models.CharField(max_length=128, blank=False, null=False)
     email      		   = models.CharField(max_length=252, blank=True, null=True, default='')
