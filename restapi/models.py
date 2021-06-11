@@ -87,7 +87,7 @@ class ProductList(models.Model):
 
 # ================================= CUSTOMER ================================= #
 class CustomerCategory(models.Model):
-    customer_category            = models.CharField(max_length=100)
+    customer_category            = models.CharField(max_length=100, default="eService")
     image           = models.URLField(blank=True, null=True)
     desc            = models.TextField(blank=True)
     content         = models.TextField(blank=True)
@@ -130,7 +130,7 @@ class Customer(models.Model):
 
 # ================================= EMPLOYEE ================================= #
 class EmployeeCategory(models.Model):
-    employee_category        = models.CharField(max_length=100)
+    employee_category        = models.CharField(max_length=100, default="eService")
     image       = models.URLField(blank=True, null=True)
     desc        = models.TextField(blank=True)
     content     = models.TextField(blank=True)
@@ -173,7 +173,7 @@ class Employee(models.Model):
 # ----- Customer and Order -----#
 
 class OrderCatgory(models.Model):
-    catname         = models.CharField(max_length=64)
+    catname         = models.CharField(max_length=64, default="eService")
     desc            = models.TextField(blank=True, null=True)
     created_at		   = models.DateTimeField(auto_now=True)
     updated_at		   = models.DateTimeField(auto_now=True)
@@ -221,7 +221,7 @@ class OrderDetail(models.Model):
 #-------------------------------------RESTAURANT CATEGORY --------------------------------------------------- #
 class RestaurantCategory(models.Model):
     # Basic
-    restaurant_category    	   = models.CharField(max_length=50, blank=False, null=False, default="")
+    restaurant_category    	   = models.CharField(max_length=50, blank=False, null=False, default="eService")
     phone	   		           = models.CharField(max_length=12, blank=True, null=True, default='')
     email      		           = models.CharField(max_length=50, blank=True, null=True, default='')
         
@@ -247,7 +247,7 @@ class RestaurantCategory(models.Model):
         return self.category
 #-------------------------------------CITY and INFORMATION ----------------------------------------------------- #       
 class Division(models.Model):
-    title        = models.CharField(max_length=128)
+    title        = models.CharField(max_length=128, default="eService")
     created_at		   = models.DateTimeField(auto_now=True)
     updated_at		   = models.DateTimeField(auto_now=True)
 
@@ -289,7 +289,7 @@ class City(models.Model):
 	    return cities
 #------------------------------------- FOOD -----------------------------------------------------------------        
 class FoodCategory(models.Model):
-    title	        = models.CharField(max_length=200, blank=False, null=False)
+    food_category	        = models.CharField(max_length=200, blank=False, null=False, default="eService")
     is_active       = models.BooleanField(default=True, blank=True)
     created_at   	= models.DateTimeField(auto_now=True)
     updated_at		= models.DateTimeField(auto_now=True)
@@ -297,7 +297,7 @@ class FoodCategory(models.Model):
     def __str__(self):
 	    return self.title + " - " + "status: " + str(self.is_active)
     class Meta:
-	    ordering = ['title']
+	    ordering = ['food_category']
 
 
 class Food(models.Model):
@@ -584,7 +584,7 @@ class Review(models.Model):
 
 # ======================== Tutorial ================================ #
 class TutorialCategory(models.Model):
-    tutorial_category = models.CharField(max_length=100)
+    tutorial_category = models.CharField(models.Model, max_length=100, default="eService")
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -609,7 +609,7 @@ class Tutorial(models.Model):
         return self.title
 # ========================== Book ==================================#
 class BookCategory(models.Model):
-    book_category = models.CharField(max_length=100)
+    book_category = models.CharField(max_length=100, default="eService")
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -636,7 +636,7 @@ class Book(models.Model):
 
 # ========================== Blog ==================================#
 class BlogCategory(models.Model):
-    blog_category = models.CharField(max_length=100)
+    blog_category = models.CharField(max_length=100, default="eService")
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -662,7 +662,7 @@ class Blog(models.Model):
 
 # =================================== CONTACT INFO ========================================== #
 class ContactCategory(models.Model):
-    contact_category = models.CharField(max_length=100)
+    contact_category = models.CharField(max_length=100, default="eService")
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -704,7 +704,7 @@ class Contact(models.Model):
 
 # =================================== CLIENT INFO ========================================== #
 class ClientCategory(models.Model):
-    client_name = models.CharField(max_length=100)
+    client_name = models.CharField(max_length=100, default="eService")
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -746,7 +746,7 @@ class ClientList(models.Model):
 
 # ==================================== TASK and TASK CATEGORY ========================================= #
 class TaskCategory(models.Model):
-    task_category = models.CharField(max_length=100)
+    task_category = models.CharField(max_length=100, default="eService")
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -779,7 +779,7 @@ class TaskList(models.Model):
 
 # ==================================== PICTURE ========================================= #
 class AlbumCategory(models.Model):
-    album_category = models.CharField(max_length=100)
+    album_category = models.CharField(max_length=100, default="eService")
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
