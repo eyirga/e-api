@@ -584,7 +584,7 @@ class Review(models.Model):
 
 # ======================== Tutorial ================================ #
 class TutorialCategory(models.Model):
-    name = models.CharField(max_length=100)
+    tutorial_category = models.CharField(max_length=100)
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -609,7 +609,7 @@ class Tutorial(models.Model):
         return self.title
 # ========================== Book ==================================#
 class BookCategory(models.Model):
-    name = models.CharField(max_length=100)
+    book_category = models.CharField(max_length=100)
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -636,7 +636,7 @@ class Book(models.Model):
 
 # ========================== Blog ==================================#
 class BlogCategory(models.Model):
-    name = models.CharField(max_length=100)
+    blog_category = models.CharField(max_length=100)
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -662,7 +662,7 @@ class Blog(models.Model):
 
 # =================================== CONTACT INFO ========================================== #
 class ContactCategory(models.Model):
-    name = models.CharField(max_length=100)
+    contact_category = models.CharField(max_length=100)
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -704,7 +704,7 @@ class Contact(models.Model):
 
 # =================================== CLIENT INFO ========================================== #
 class ClientCategory(models.Model):
-    name = models.CharField(max_length=100)
+    client_name = models.CharField(max_length=100)
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -746,7 +746,7 @@ class ClientList(models.Model):
 
 # ==================================== TASK and TASK CATEGORY ========================================= #
 class TaskCategory(models.Model):
-    name = models.CharField(max_length=100)
+    task_category = models.CharField(max_length=100)
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
@@ -779,7 +779,7 @@ class TaskList(models.Model):
 
 # ==================================== PICTURE ========================================= #
 class AlbumCategory(models.Model):
-    name = models.CharField(max_length=100)
+    album_category = models.CharField(max_length=100)
     image = models.URLField(blank=True, null=True)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
