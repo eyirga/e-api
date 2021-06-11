@@ -792,7 +792,7 @@ class AlbumCategory(models.Model):
 
 class AlbumList(models.Model):
     title = models.CharField(max_length=250)
-    album_category = models.ForeignKey(TaskCategory, on_delete=models.PROTECT, default="general")
+    album_category = models.ForeignKey(TaskCategory, on_delete=models.PROTECT)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
     image = models.URLField(blank=True, null=True)
