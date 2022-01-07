@@ -644,7 +644,7 @@ class BlogCategory(models.Model):
     updated_at		   = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.blog_category
 
 class Blog(models.Model):
     title = models.CharField(max_length=70, blank=False, default='')
@@ -755,11 +755,11 @@ class TaskCategory(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.task_category
 
 class TaskList(models.Model):
     title = models.CharField(max_length=250)
-    task_category = models.ForeignKey(TaskCategory, on_delete=models.PROTECT, default="general")
+    task_category = models.ForeignKey(TaskCategory, on_delete=models.PROTECT)
     desc = models.TextField(blank=True)
     content = models.TextField(blank=True)
     image = models.URLField(blank=True, null=True)
