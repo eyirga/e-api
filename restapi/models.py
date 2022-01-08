@@ -97,7 +97,7 @@ class CustomerCategory(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.customer_category
 
 class Customer(models.Model):
     customer_category       = models.ForeignKey(CustomerCategory, on_delete=models.CASCADE)
@@ -139,7 +139,7 @@ class EmployeeCategory(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.employee_category
 
 class Employee(models.Model):
     employee_category       = models.ForeignKey(EmployeeCategory, on_delete=models.CASCADE)
@@ -449,7 +449,7 @@ class Notification(models.Model):
 	is_seen	   = models.BooleanField(blank=True, null=True)
 
 	def __str__(self):
-		return self.account.name + ' - ' + 'seen = ' + str(self.is_seen)
+		return self.account.title + ' - ' + 'seen = ' + str(self.is_seen)
 
 	class Meta:
 		ordering = ['-created_at']
@@ -593,7 +593,7 @@ class TutorialCategory(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.tutorial_category
 
 class Tutorial(models.Model):
     tutorial_category = models.ForeignKey(TutorialCategory, on_delete=models.CASCADE)
@@ -618,7 +618,7 @@ class BookCategory(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.book_category
 
 class Book(models.Model):
     book_category = models.ForeignKey(BookCategory, on_delete=models.CASCADE)
@@ -671,7 +671,7 @@ class ContactCategory(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.contact_category
 class Contact(models.Model):
     contact_category   = models.ForeignKey(ContactCategory, on_delete=models.CASCADE)
     first_name       = models.CharField(max_length=100, blank=True, null=True)
@@ -712,7 +712,7 @@ class ClientCategory(models.Model):
     updated_at		   = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.client_name
 
 class ClientList(models.Model):
     client_name = models.ForeignKey(ClientCategory, on_delete=models.PROTECT, default="general")
@@ -788,7 +788,7 @@ class AlbumCategory(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.album_category
 
 class AlbumList(models.Model):
     title = models.CharField(max_length=250)
